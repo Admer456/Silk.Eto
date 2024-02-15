@@ -7,6 +7,8 @@ Silk already provided an excellent abstract API for windows & input, and I wante
 
 ## Important notes
 
+At the moment, **input is not implemented**. Mouse & keyboard events will be worked on soon.
+
 Veldrid support matrix:
 * 👍 - works
 * ❓ - to be tested
