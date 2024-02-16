@@ -4,7 +4,23 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <Title>Silk.Eto</Title>
+    <Authors>Eto.Veldrid authors and Silk.Eto authors (AUTHORS.md)</Authors>
+    <Copyright>2018-2020 Eto.Veldrid authors, 2024-present Silk.Eto contributors</Copyright>
+    <RepositoryUrl>https://github.com/Admer456/Silk.Eto</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/Admer456/Silk.Eto</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <Description>Use Eto controls as Silk windows for rendering</Description>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Eto.Forms" Version="2.8.2" />

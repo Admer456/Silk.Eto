@@ -13,9 +13,23 @@
     <UseWinForms Condition="$(HaveWindowsDesktopSdk) == 'True'">true</UseWinForms>
     <!-- prevent warning with Extended.Wpf.Toolkit in .NET Core -->
     <NoWarn>NU1701</NoWarn>
-    <Title>Veldrid WPF implementation for Eto.Forms</Title>
-    <Description>This provides the WPF implementation of Eto.Veldrid for Eto.Forms</Description>
+    <Title>Silk.Eto</Title>
+    <Authors>Eto.Veldrid authors and Silk.Eto authors (AUTHORS.md)</Authors>
+    <Copyright>2018-2020 Eto.Veldrid authors, 2024-present Silk.Eto contributors</Copyright>
+    <RepositoryUrl>https://github.com/Admer456/Silk.Eto</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/Admer456/Silk.Eto</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <Description>GTK backend for Silk.Eto</Description>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\Silk.Eto\..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Silk.Eto\Silk.Eto.csproj" />
