@@ -1,4 +1,6 @@
-﻿
+﻿// SPDX-FileCopyrightText: 2024-present Silk.Eto contributors
+// SPDX-License-Identifier: MIT
+
 using Silk.Eto;
 using Silk.NET.Windowing;
 

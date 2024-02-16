@@ -1,4 +1,7 @@
-﻿using Gtk;
+﻿// SPDX-FileCopyrightText: 2018-2020 Eto.Veldrid authors, 2024-present Silk.Eto contributors
+// SPDX-License-Identifier: MIT
+
+using Gtk;
 
 namespace Silk.Eto.Gtk
 {

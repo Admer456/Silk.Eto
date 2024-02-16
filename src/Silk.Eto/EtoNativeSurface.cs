@@ -1,4 +1,7 @@
-﻿using Silk.NET.Core.Contexts;
+﻿// SPDX-FileCopyrightText: 2024-present Silk.Eto contributors
+// SPDX-License-Identifier: MIT
+
+using Silk.NET.Core.Contexts;
 using Silk.NET.Windowing;
 
 namespace Silk.Eto

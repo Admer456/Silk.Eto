@@ -1,4 +1,7 @@
-﻿using Eto.Drawing;
+﻿// SPDX-FileCopyrightText: 2018-2020 Eto.Veldrid authors, 2024-present Silk.Eto contributors
+// SPDX-License-Identifier: MIT
+
+using Eto.Drawing;
 using System;
 
 namespace Silk.Eto

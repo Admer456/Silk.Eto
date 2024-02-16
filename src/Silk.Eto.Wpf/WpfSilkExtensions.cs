@@ -1,4 +1,7 @@
-﻿using Eto.Forms;
+﻿// SPDX-FileCopyrightText: 2018-2020 Eto.Veldrid authors, 2024-present Silk.Eto contributors
+// SPDX-License-Identifier: MIT
+
+using Eto.Forms;
 using System;
 using swf = System.Windows.Forms;
 using swi = System.Windows.Input;
