@@ -5,8 +5,8 @@ using Eto.Drawing;
 using Eto.Forms;
 using System;
 using System.Windows.Forms.Integration;
-using swf = System.Windows.Forms;
-using swi = System.Windows.Input;
+using SWF = System.Windows.Forms;
+using SWI = System.Windows.Input;
 
 namespace Eto.Wpf.Forms
 {
@@ -15,7 +15,7 @@ namespace Eto.Wpf.Forms
 	/// manually raises some WPF events to hopefully make them bubble properly.
 	/// </summary>
 	public class ManualBubbleWindowsFormsHostHandler<TControl, TWidget, TCallback> : WpfFrameworkElement<WindowsFormsHost, TWidget, TCallback>
-			where TControl : swf.Control
+			where TControl : SWF.Control
 			where TWidget : Control
 			where TCallback : Control.ICallback
 	{
@@ -99,7 +99,7 @@ namespace Eto.Wpf.Forms
 			}
 		}
 
-		private void Control_MouseWheel( object sender, swi.MouseWheelEventArgs e )
+		private void Control_MouseWheel( object sender, SWI.MouseWheelEventArgs e )
 		{
 			// To ensure all involved overrides are called in the right order,
 			// call the callback, consider the event handled, and then tell WPF
@@ -109,9 +109,9 @@ namespace Eto.Wpf.Forms
 
 			e.Handled = true;
 
-			var args = new swi.MouseWheelEventArgs( e.MouseDevice, e.Timestamp, e.Delta )
+			var args = new SWI.MouseWheelEventArgs( e.MouseDevice, e.Timestamp, e.Delta )
 			{
-				RoutedEvent = swi.Mouse.PreviewMouseWheelEvent,
+				RoutedEvent = SWI.Mouse.PreviewMouseWheelEvent,
 				Source = e.Source
 			};
 
@@ -124,7 +124,7 @@ namespace Eto.Wpf.Forms
 		bool charPressed;
 		public Keys? LastKeyDown { get; set; }
 
-		void WinFormsControl_KeyDown( object sender, swf.KeyEventArgs e )
+		void WinFormsControl_KeyDown( object sender, SWF.KeyEventArgs e )
 		{
 			charPressed = false;
 			handled = true;
@@ -152,7 +152,7 @@ namespace Eto.Wpf.Forms
 			LastKeyDown = null;
 		}
 
-		void WinFormsControl_KeyPress( object sender, swf.KeyPressEventArgs e )
+		void WinFormsControl_KeyPress( object sender, SWF.KeyPressEventArgs e )
 		{
 			charPressed = true;
 			keyChar = e.KeyChar;
@@ -176,7 +176,7 @@ namespace Eto.Wpf.Forms
 				e.Handled = true;
 		}
 
-		void WinFormsControl_KeyUp( object sender, swf.KeyEventArgs e )
+		void WinFormsControl_KeyUp( object sender, SWF.KeyEventArgs e )
 		{
 			key = e.KeyData.ToEto();
 
@@ -195,11 +195,11 @@ namespace Eto.Wpf.Forms
 			}
 		}
 
-		void WinFormsControl_MouseWheel( object sender, swf.MouseEventArgs e )
+		void WinFormsControl_MouseWheel( object sender, SWF.MouseEventArgs e )
 		{
-			var args = new swi.MouseWheelEventArgs( swi.InputManager.Current.PrimaryMouseDevice, Environment.TickCount, e.Delta )
+			var args = new SWI.MouseWheelEventArgs( SWI.InputManager.Current.PrimaryMouseDevice, Environment.TickCount, e.Delta )
 			{
-				RoutedEvent = swi.Mouse.MouseWheelEvent,
+				RoutedEvent = SWI.Mouse.MouseWheelEvent,
 				Source = Control
 			};
 
@@ -210,9 +210,9 @@ namespace Eto.Wpf.Forms
 
 		void WinFormsControl_MouseEnter( object sender, EventArgs e ) => Callback.OnMouseEnter( Widget, new MouseEventArgs( Mouse.Buttons, Keyboard.Modifiers, PointFromScreen( Mouse.Position ) ) );
 
-		void WinFormsControl_MouseDoubleClick( object sender, swf.MouseEventArgs e ) => Callback.OnMouseDoubleClick( Widget, e.ToEto( WinFormsControl ) );
+		void WinFormsControl_MouseDoubleClick( object sender, SWF.MouseEventArgs e ) => Callback.OnMouseDoubleClick( Widget, e.ToEto( WinFormsControl ) );
 
-		void WinFormsControl_MouseDown( object sender, swf.MouseEventArgs e )
+		void WinFormsControl_MouseDown( object sender, SWF.MouseEventArgs e )
 		{
 			// Contrary to most WPF controls, the WindowsFormsHost class seems
 			// to prevent correct mouse event data from being obtained (e.g.
@@ -222,10 +222,10 @@ namespace Eto.Wpf.Forms
 
 			MouseEventArgs eto = e.ToEto( WinFormsControl );
 
-			swi.MouseButton changed = eto.ToWpf().ChangedButton;
-			var args = new swi.MouseButtonEventArgs( swi.InputManager.Current.PrimaryMouseDevice, Environment.TickCount, changed )
+			SWI.MouseButton changed = eto.ToWpf().ChangedButton;
+			var args = new SWI.MouseButtonEventArgs( SWI.InputManager.Current.PrimaryMouseDevice, Environment.TickCount, changed )
 			{
-				RoutedEvent = swi.Mouse.MouseDownEvent,
+				RoutedEvent = SWI.Mouse.MouseDownEvent,
 				Source = Control
 			};
 
@@ -236,16 +236,16 @@ namespace Eto.Wpf.Forms
 			Control.RaiseEvent( args );
 		}
 
-		void WinFormsControl_MouseUp( object sender, swf.MouseEventArgs e )
+		void WinFormsControl_MouseUp( object sender, SWF.MouseEventArgs e )
 		{
 			Control.CaptureMouse();
 
 			MouseEventArgs eto = e.ToEto( WinFormsControl );
 
-			swi.MouseButton changed = eto.ToWpf().ChangedButton;
-			var args = new swi.MouseButtonEventArgs( swi.InputManager.Current.PrimaryMouseDevice, Environment.TickCount, changed )
+			SWI.MouseButton changed = eto.ToWpf().ChangedButton;
+			var args = new SWI.MouseButtonEventArgs( SWI.InputManager.Current.PrimaryMouseDevice, Environment.TickCount, changed )
 			{
-				RoutedEvent = swi.Mouse.MouseUpEvent,
+				RoutedEvent = SWI.Mouse.MouseUpEvent,
 				Source = Control
 			};
 
@@ -254,11 +254,11 @@ namespace Eto.Wpf.Forms
 			Control.RaiseEvent( args );
 		}
 
-		void WinFormsControl_MouseMove( object sender, swf.MouseEventArgs e )
+		void WinFormsControl_MouseMove( object sender, SWF.MouseEventArgs e )
 		{
-			var args = new swi.MouseEventArgs( swi.InputManager.Current.PrimaryMouseDevice, Environment.TickCount )
+			var args = new SWI.MouseEventArgs( SWI.InputManager.Current.PrimaryMouseDevice, Environment.TickCount )
 			{
-				RoutedEvent = swi.Mouse.MouseMoveEvent,
+				RoutedEvent = SWI.Mouse.MouseMoveEvent,
 				Source = Control
 			};
 
