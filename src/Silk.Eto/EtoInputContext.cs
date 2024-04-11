@@ -10,15 +10,15 @@ namespace Silk.Eto
 {
 	public class EtoKeyboard : IKeyboard
 	{
-		public IReadOnlyList<Key> SupportedKeys => throw new NotImplementedException();
+		public IReadOnlyList<Key> SupportedKeys => Array.Empty<Key>();
 
-		public string ClipboardText { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+		public string ClipboardText { get; set; } = string.Empty;
 
-		public string Name => throw new NotImplementedException();
+		public string Name => "Basic keyboard";
 
-		public int Index => throw new NotImplementedException();
+		public int Index => 0;
 
-		public bool IsConnected => throw new NotImplementedException();
+		public bool IsConnected => true;
 
 		public event Action<IKeyboard, Key, int>? KeyDown;
 		public event Action<IKeyboard, Key, int>? KeyUp;
@@ -26,37 +26,29 @@ namespace Silk.Eto
 
 		public void BeginInput()
 		{
-			throw new NotImplementedException();
 		}
 
 		public void EndInput()
 		{
-			throw new NotImplementedException();
 		}
 
-		public bool IsKeyPressed( Key key )
-		{
-			throw new NotImplementedException();
-		}
-
-		public bool IsScancodePressed( int scancode )
-		{
-			throw new NotImplementedException();
-		}
+		// TODO: implement keyboard
+		public bool IsKeyPressed( Key key ) => false;
+		public bool IsScancodePressed( int scancode ) => false;
 	}
 
 	public class EtoMouse : IMouse
 	{
-		public IReadOnlyList<MouseButton> SupportedButtons => throw new NotImplementedException();
+		public IReadOnlyList<MouseButton> SupportedButtons => Array.Empty<MouseButton>();
 
-		public IReadOnlyList<ScrollWheel> ScrollWheels => throw new NotImplementedException();
+		public IReadOnlyList<ScrollWheel> ScrollWheels => Array.Empty<ScrollWheel>();
 
-		public Vector2 Position { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+		public Vector2 Position { get; set; } = Vector2.Zero;
 
 		public ICursor Cursor => throw new NotImplementedException();
 
-		public int DoubleClickTime { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-		public int DoubleClickRange { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+		public int DoubleClickTime { get; set; } = 10;
+		public int DoubleClickRange { get; set; } = 10;
 
 		public string Name => "Mouse";
 
@@ -80,8 +72,8 @@ namespace Silk.Eto
 	public class EtoInputContext : IInputContext
 	{
 		SilkSurface mSurface;
-		IKeyboard[] mKeyboards;
-		IMouse[] mMice;
+		IKeyboard[] mKeyboards = [new EtoKeyboard()];
+		IMouse[] mMice = [new EtoMouse()];
 
 		public EtoInputContext( SilkSurface surface )
 		{
