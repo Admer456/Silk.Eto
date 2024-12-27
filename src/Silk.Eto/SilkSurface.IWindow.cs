@@ -1,12 +1,13 @@
-﻿using Eto.Drawing;
+﻿// SPDX-FileCopyrightText: 2024-present Silk.Eto contributors
+// SPDX-License-Identifier: MIT
+
 using Eto.Forms;
 using Silk.NET.Core;
 using Silk.NET.Core.Contexts;
 using Silk.NET.Maths;
 using Silk.NET.Windowing;
 using System.Diagnostics;
-// SPDX-FileCopyrightText: 2024-present Silk.Eto contributors
-// SPDX-License-Identifier: MIT
+
 
 namespace Silk.Eto
 {
